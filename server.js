@@ -15,7 +15,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const credentials = JSON.parse(fs.readFileSync('./service-account.json'));
+const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
 const analyticsDataClient = new BetaAnalyticsDataClient({ credentials });
 const propertyId = '477368274';
 
